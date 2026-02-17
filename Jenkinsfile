@@ -18,9 +18,15 @@ pipeline {
 
         stage('Verification After Pull') {
             steps {
-                echo "Code pulled successfully!"
-                bat 'dir'
+                script {
+                    if (isUnix()) {
+                        sh 'ls -la'
+                    } else {
+                        bat 'dir'
+                    }
+                }
             }
         }
+
     }
 }
