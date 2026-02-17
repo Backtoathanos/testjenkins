@@ -11,19 +11,15 @@ pipeline {
 
         stage('Pulling Latest Code') {
             steps {
-                script {
-                    echo "Pulling latest commits..."
-                }
+                echo "Pulling latest commits..."
                 checkout scm
             }
         }
 
         stage('Verification After Pull') {
             steps {
-                script {
-                    echo "Code pulled successfully!"
-                    sh 'ls -la'
-                }
+                echo "Code pulled successfully!"
+                bat 'dir'
             }
         }
     }
